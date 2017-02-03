@@ -155,6 +155,24 @@
 						fontSize: '10px'
 					}
 				}
+				, responsive: {
+					rules: [{
+						condition: {
+							maxWidth: 500
+						},
+						chartOptions: {
+							chart: {
+								height: 800
+							},
+							subtitle: {
+								text: null
+							},
+							navigator: {
+								enabled: false
+							}
+						}
+					}]
+				}
 			};
 
 			var YAxisOptions = {

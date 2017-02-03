@@ -169,7 +169,7 @@ body { counter-reset: variable; margin: 0; color: #000000; font:400 14px/18px 'a
 *:before,
 *:after { box-sizing: inherit; }
 
-* {	max-height: 1000000px; }
+/** {	max-height: 1000000px; }*/
 
 q {	quotes: none; }
 
