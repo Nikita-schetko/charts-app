@@ -382,24 +382,22 @@
 	<script src="./js/modalwindowScript.js"></script>
         <center>
             <font size="2"><b>Category:</b>  <a href="#us">U.S. ETFs</a> | <a href="#commod">Commodities/Vol/Bond/Currencies ETFs</a> | <a href="#country">Emerging Markets/Country ETFs</a></font>
-<table class="table-container" cellpadding="1" cellspacing="1">
-<tbody><tr>
-	<td align="center" bgcolor="#161e5f" valign="top" width="100%">
-		<font face="Helvetica" color="white" size="2"><b>U.S. ETFs</b></font><a id="us"> </a>
-		<table width="100%" cellpadding="5">
-  <tbody>
+<table class="container-table etf-table" cellpadding="5" cellspacing="1">
+<tbody>
+		<tr>
+			<td colspan="10" bgcolor="#161e5f" class="text-center">
+				<font face="Helvetica" color="white" size="2"><b>U.S. ETFs</b></font><a id="us"> </a>
+			</td>
+		</tr>
     <tr>
       <td bgcolor="#2392E4" valign="center">
-        <font color="white" face="Helvetica" size="2"><strong>SYMBOL</strong></font>
+        <font color="white" face="Helvetica" size="2"><strong>SYMBOL / NAME</strong></font>
       </td>
-      <td bgcolor="#2392E4" valign="center">
+      <!--<td bgcolor="#2392E4" valign="center">
         <font color="white" face="Helvetica" size="2"><strong>NAME</strong></font>
-      </td>
+      </td>-->
       <td bgcolor="#2392E4" width="50" valign="center" align="right">
-        <font color="white" face="Helvetica" size="2"><strong>CLOSE</strong></font>
-      </td>
-      <td bgcolor="#2392E4" width="50" valign="center" align="right">
-        <font color="white" face="Helvetica" size="2"><strong>VOLUME</strong></font>
+        <font color="white" face="Helvetica" size="2"><strong>CLOSE / VOLUME</strong></font>
       </td>
       <td bgcolor="#2392E4" width="50" valign="center">
         <font color="white" face="Helvetica" size="2"><strong>CHG</strong></font>
@@ -413,8 +411,8 @@
       <td bgcolor="#2392E4" width="50" valign="center">
         <font color="white" face="Helvetica" size="2"><strong>YTD</strong></font>
       </td>
-      <td bgcolor="#2392E4" align="center" width="200">
-        <font color="white" face="Helvetica" size="2"><strong>QUANTFORECAST</strong></font>
+      <td bgcolor="#2392E4" align="center" >
+        <!--<font color="white" face="Helvetica" size="2"><strong>QUANTFORECAST</strong></font>
         <table width="200">
           <tbody>
             <tr>
@@ -432,40 +430,37 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
       </td>
     </tr>
     <tr>
-      <td bgcolor="white">
-        <a href="https://www.wingcharts.com/?symbol=SPY" target="_blank"><font size="2">SPY</font></a>
+      <td  >
+        <a class="etf-symbol" href="https://www.wingcharts.com/?symbol=SPY" target="_blank"><font size="2">SPY</font></a>
+						<span class="etf-name">SPDR S&amp;P 500</span>
       </td>
-      <td bgcolor="white">
-        <font size="2">SPDR S&amp;P 500</font>
-      </td>
-      <td bgcolor="white" align="right">
+
+      <td   align="right">
         <font size="2">229.35</font>
+				<font size="2">65,199,361</font>
       </td>
-      <td bgcolor="white" align="right">
-        <font size="2">65,199,361</font>
-      </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+1.58</font>
         (<font color="green">+0.69%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+0.36</font>
         (<font color="green">+0.16%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+1.84</font>
         (<font color="green">+0.81%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+5.82</font>
         (<font color="green">+2.60%</font>)</font>
       </td>
-      <td bgcolor="white" width="200">
-        <table width="200">
+      <td   >
+        <!--<table width="200">
           <tbody>
             <tr>
               <td width="25%" align="center">
@@ -482,39 +477,47 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
       </td>
     </tr>
+		<tr class="qf-row">
+			<td colspan="10">
+						<div class="qf-items">
+							<span class="qf-item"><i>2d</i><img src="images/bullisharrow.jpg"></span>
+							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
+							<span class="qf-item"><i>10d</i><img src="images/neutralarrow.jpg"></span>
+							<span class="qf-item"><i>20d</i><img src="images/neutralarrow.jpg"></span>
+						</div>
+			</td>
+		</tr>
     <tr>
-      <td bgcolor="white">
+      <td  >
         <a href="https://www.wingcharts.com/?symbol=DIA" target="_blank"><font size="2">DIA</font></a>
       </td>
-      <td bgcolor="white">
+      <!--<td  >
         <font size="2">Dow Jones Industrial Average ETF</font>
-      </td>
-      <td bgcolor="white" align="right">
+      </td>-->
+      <td   align="right">
         <font size="2">200.39</font>
+				<font size="2">4,778,286</font>
       </td>
-      <td bgcolor="white" align="right">
-        <font size="2">4,778,286</font>
-      </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+1.78</font>
         (<font color="green">+0.90%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="red">-0.24</font> (<font color="red">-0.12%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+2.04</font>
         (<font color="green">+1.03%</font>)</font>
       </td>
-      <td bgcolor="white">
+      <td  >
         <font size="2"><font color="green">+3.07</font>
         (<font color="green">+1.56%</font>)</font>
       </td>
-      <td bgcolor="white" width="200">
-        <table width="200">
+      <td>
+        <!--<table width="200">
           <tbody>
             <tr>
               <td width="25%" align="center">
@@ -531,14 +534,24 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
       </td>
     </tr>
-
-  </tbody>
-</table>
-	</td>
-	</tr>
+		<tr>
+			<td colspan="10">6</td>
+		</tr>
+		<tr>
+			<td colspan="10">7</td>
+		</tr>
+		<tr>
+			<td colspan="10">8</td>
+		</tr>
+		<tr>
+			<td colspan="10">9</td>
+		</tr>
+		<tr>
+			<td colspan="10">10</td>
+		</tr>
 </tbody>
 </table>
         </center>

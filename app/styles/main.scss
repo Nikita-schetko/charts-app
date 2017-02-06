@@ -114,3 +114,54 @@ body {
         }
     }
 }
+
+
+.etf-table
+{
+    border:1px solid #161e5f;
+    .etf-symbol
+    {
+        display: block;
+    }
+    .etf-name
+    {
+        display: block;
+        font-weight: bold;
+    }
+    
+    // tr:nth-child(4n-1),
+    // tr:nth-child(4n)
+    // {
+    //     background-color: #e9e9e9;
+    // }
+    tr:nth-child(2n+4) td
+    {
+        border-bottom:1px solid #161e5f;
+    }
+   
+}
+
+    .qf-row td
+    {
+        text-align: right;
+        .qf-items
+        {
+            display: block;
+            white-space: nowrap;
+            margin-right: 5px;
+
+            i
+            {
+                background-color: #2392e4;
+                padding: 2px;
+                border-radius: 5px;
+                color:white;
+                font-style: normal;
+
+            }
+            img
+            {
+                margin: 2px 5px;
+            }
+        }
+    }
