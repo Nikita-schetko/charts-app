@@ -116,11 +116,31 @@ body {
 .etf-table {
   border: 1px solid #161e5f;
   border-collapse: separate;
+  td
+  {
+    vertical-align: top;
+  }
   td[rowspan="2"]
   {
       vertical-align: top;
       border-bottom: 1px solid #dedede;
   }
+    @media screen and (min-width: 1000px) {
+      .hidden-desktop
+      {
+        display: none !important;
+      }
+      td:first-child
+      {
+        width:80px;
+      }      
+    }  
+    @media screen and (max-width: 1000px) {
+      .hidden-mobile
+      {
+        display: none !important;
+      }      
+    }  
     @media screen and (max-width: 480px) {
         font[size="2"]
         {
