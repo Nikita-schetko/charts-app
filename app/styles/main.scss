@@ -1,11 +1,5 @@
 // bower:scss
 // endbower
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
 
 body {
   background: #fafafa;
@@ -13,21 +7,6 @@ body {
   color: #333;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-}
 
 .row.no-margin {
   margin: 0;
@@ -125,7 +104,7 @@ body {
       vertical-align: top;
       border-bottom: 1px solid #dedede;
   }
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: 768px) {
       .hidden-desktop
       {
         display: none !important;
@@ -135,7 +114,7 @@ body {
         width:80px;
       }      
     }  
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 768px) {
       .hidden-mobile
       {
         display: none !important;
@@ -194,6 +173,13 @@ body {
       color: gray;
       display: inline-block;
       margin-right: 15px;
+      &:before
+      {
+        content: 'QUANTFORECAST: ';
+        @media screen and (max-width: 768px) {
+          content: 'QF: ';
+        }
+      }
             @media screen and (max-width: 480px) {
                 font-size:11px;
                 margin-right: 5px;

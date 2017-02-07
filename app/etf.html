@@ -129,7 +129,7 @@
               <tr>
                 <td>
                   <center>
-                    <h4>
+                    <h4>\
                       <font color="#2392e4">
                         <u>What You Will Get</u>
                       </font>
@@ -251,7 +251,7 @@
           </a>
           <br>
           <font color="#6b6b6b" face="Helvetica" size="1">Technical Analysis with a Quantitative Edge</font>
-          <p>
+          
         </td>
         <td align="right" valign="bottom">
           <font size="1">
@@ -370,9 +370,11 @@
           <form method="POST">
             <center>
               <p>Copy and paste the following link to share this page</p><br>
-              <input name="link" class="linkclass" value="http://www.wingcharts.com/?symbol=CAG&id=05d8632563" size=60>
+              <input name="link" class="linkclass" value="http://www.wingcharts.com/?symbol=CAG&id=05d8632563" size="60">
               <br>
               <input type="button" value="Copy to Clipboard" onclick="copyToClipboard();">
+            </center>
+          </form>
         </div>
         <div class="modal-footer">
           <center>&nbsp;</center>
@@ -450,6 +452,7 @@
 		<tr class="qf-row">
 			<td colspan="7">
 						<div class="qf-items">
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
 							<span class="qf-item"><i>2d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/neutralarrow.jpg"></span>
@@ -491,6 +494,7 @@
 		<tr class="qf-row">
 			<td colspan="7">
 						<div class="qf-items">
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
 							<span class="qf-item"><i>2d</i><img src="images/neutralarrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/neutralarrow.jpg"></span>
@@ -533,6 +537,7 @@
 		<tr class="qf-row">
 			<td colspan="7">
 						<div class="qf-items">
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
 							<span class="qf-item"><i>2d</i><img src="images/neutralarrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/bullisharrow.jpg"></span>
@@ -543,7 +548,7 @@
 </tbody>
 </table>
 <hr>
-<!--<table class="container-table etf-table" cellpadding="5" cellspacing="1">
+<table class="container-table etf-table" cellpadding="5" cellspacing="1">
 <tbody>
 		<tr>
 			<td colspan="10" bgcolor="#161e5f" class="text-center">
@@ -552,10 +557,16 @@
 		</tr>
     <tr>
       <td bgcolor="#2392E4" valign="center">
-        <font color="white" face="Helvetica" size="2"><strong>SYMBOL / NAME</strong></font>
+        <font color="white" face="Helvetica" size="2"><strong>SYMBOL <span class="hidden-desktop">/ NAME</span></strong></font>
+      </td>
+      <td class="hidden-mobile" bgcolor="#2392E4"  valign="top" align="left">
+        <font color="white" face="Helvetica" size="2"><strong>NAME</strong></font>
       </td>
       <td bgcolor="#2392E4" width="50" valign="center" align="right">
-        <font color="white" face="Helvetica" size="2"><strong>CLOSE / VOLUME</strong></font>
+        <font color="white" face="Helvetica" size="2"><strong>CLOSE <span class="hidden-desktop">/ VOLUME</span></strong></font>
+      </td>
+      <td class="hidden-mobile" bgcolor="#2392E4" width="50" valign="center" align="right">
+        <font color="white" face="Helvetica" size="2"><strong>VOLUME</strong></font>
       </td>
       <td bgcolor="#2392E4" width="50" valign="center">
         <font color="white" face="Helvetica" size="2"><strong>CHG</strong></font>
@@ -573,13 +584,19 @@
     <tr>
       <td rowspan="2">
         <a class="etf-symbol" href="https://www.wingcharts.com/?symbol=GLD" target="_blank"><font size="2">GLD</font></a>
-				<span class="etf-name">SPDR Gold Trust</span>
+				<span class="etf-name hidden-desktop">SPDR Gold Trust</span>
+      </td>
+      <td class="hidden-mobile">
+          <span class="etf-name">SPDR Gold Trust</span>
       </td>
       <td align="right">
         <font size="2">229.35</font>
-				<font size="2">65,199,361</font>
+				<span class="hidden-desktop"><font size="2">65,199,361</font></span>
       </td>
-      <td  >
+      <td class="hidden-mobile">
+          <font size="2">65,199,361</font>
+      </td>
+      <td>
         <font size="2"><font color="green">+1.58</font>
         (<font color="green">+0.69%</font>)</font>
       </td>
@@ -597,10 +614,10 @@
       </td>
     </tr>
 		<tr class="qf-row">
-			<td colspan="5">
+			<td colspan="7">
 						<div class="qf-items">
-              <span class="qf-legend">QF<a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a> :</span>
-							<span class="qf-item"><i>2d</i><img src="images/bullisharrow.jpg"></span>
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
+							<span class="qf-item"><i>2d</i><img src="images/bearisharrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/neutralarrow.jpg"></span>
 							<span class="qf-item"><i>20d</i><img src="images/neutralarrow.jpg"></span>
@@ -610,11 +627,17 @@
     <tr>
       <td rowspan="2">
         <a class="etf-symbol" href="https://www.wingcharts.com/?symbol=SLV" target="_blank"><font size="2">SLV</font></a>
-        <span class="etf-name">iShares Silver Trust</span>
+        <span class="etf-name hidden-desktop">iShares Silver Trust</span>
+      </td>
+      <td class="hidden-mobile">
+          <span class="etf-name">iShares Silver Trust</span>
       </td>
       <td   align="right">
         <font size="2">200.39</font>
-				<font size="2">4,778,286</font>
+				<span class="hidden-desktop"><font size="2">4,778,286</font></span>
+      </td>
+      <td class="hidden-mobile">
+          <font size="2">4,778,286</font>
       </td>
       <td  >
         <font size="2"><font color="green">+1.78</font>
@@ -633,9 +656,9 @@
       </td>
     </tr>
 		<tr class="qf-row">
-			<td colspan="5">
+			<td colspan="7">
 						<div class="qf-items">
-              <span class="qf-legend">QF<a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a> :</span>
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
 							<span class="qf-item"><i>2d</i><img src="images/neutralarrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bullisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/neutralarrow.jpg"></span>
@@ -646,11 +669,17 @@
    <tr>
       <td rowspan="2">
         <a class="etf-symbol" href="https://www.wingcharts.com/?symbol=USO" target="_blank"><font size="2">USO</font></a>
-        <span class="etf-name">United States Oil Fund</span>
+        <span class="etf-name hidden-desktop">United States Oil Fund</span>
+      </td>
+      <td class="hidden-mobile">
+          <span class="etf-name">United States Oil Fund</span>
       </td>
       <td   align="right">
         <font size="2">125.66</font>
-				<font size="2">6,662,347</font>
+				<span class="hidden-desktop"><font size="2">6,662,347</font></span>
+      </td>
+      <td class="hidden-mobile">
+          <font size="2">6,662,347</font>
       </td>
       <td  >
         <font size="2"><font color="red">	-0.02</font>
@@ -665,23 +694,23 @@
         (<font color="red">-0.87%</font>)</font>
       </td>
       <td  >
-        <font size="2"><font color="green">+7.18</font>
-        (<font color="green">+6.06%</font>)</font>
+        <font size="2"><font color="red">-7.18</font>
+        (<font color="red">-6.06%</font>)</font>
       </td>
     </tr>
 		<tr class="qf-row">
-			<td colspan="5">
+			<td colspan="7">
 						<div class="qf-items">
-              <span class="qf-legend">QF<a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a> :</span>
+              <span class="qf-legend"><a href="how_it_works.php" target="_blank"><font color="#161e5f">(?)</font></a></span>
 							<span class="qf-item"><i>2d</i><img src="images/neutralarrow.jpg"></span>
 							<span class="qf-item"><i>5d</i><img src="images/bearisharrow.jpg"></span>
 							<span class="qf-item"><i>10d</i><img src="images/bearisharrow.jpg"></span>
-							<span class="qf-item"><i>20d</i><img src="images/neutralarrow.jpg"></span>
+							<span class="qf-item"><i>20d</i><img src="images/bearisharrow.jpg"></span>
 						</div>
 			</td>
 		</tr>
 </tbody>
-</table>-->
+</table>
         </center>
          <hr size="1" color="#dddddd" >
         <center>
