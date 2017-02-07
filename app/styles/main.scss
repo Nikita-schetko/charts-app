@@ -127,6 +127,13 @@ body {
             font-size:12px !important;
         }
         
+    }
+    @media screen and (max-width: 480px) {
+        font[size="2"]
+        {
+            font-size:8pt !important;
+        }
+        
     }   
   .etf-symbol {
     display: block;
@@ -136,6 +143,10 @@ body {
     display: block;
     font-weight: bold;
     color: #161e5f;
+    @media screen and (max-width: 440px) {
+            font-size:8pt !important; 
+             font-weight: normal;       
+    }
   }
   // tr:nth-child(4n-1),
   // tr:nth-child(4n)
