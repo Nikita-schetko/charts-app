@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "highcharts/highstock": "registry:dt/highcharts/highstock#2.1.5+20161012124704",
+    "jquery": "registry:dt/jquery#1.10.0+20170123093700",
+    "jqueryui": "registry:dt/jqueryui#1.11.0+20161214061125"
+  }
+}

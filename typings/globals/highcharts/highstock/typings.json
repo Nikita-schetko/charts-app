@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/c830d9ef5126f52a3f97b7f788229c0622eaed5a/highcharts/highstock.d.ts",
+    "raw": "registry:dt/highcharts/highstock#2.1.5+20161012124704",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/c830d9ef5126f52a3f97b7f788229c0622eaed5a/highcharts/highstock.d.ts"
+  }
+}
