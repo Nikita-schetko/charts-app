@@ -162,6 +162,19 @@ body {
   }
 }
 
+//TOOLTIPS
+body .ui-tooltip
+{
+  border-width: 1px;
+  border-radius: 0px;
+
+  .ui-tooltip-content
+  {
+    font-size:12px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+  }
+}
+
 .qf-row td {
   text-align: right;
   padding-top: 0;

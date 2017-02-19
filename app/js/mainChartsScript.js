@@ -88,7 +88,7 @@
 				padding: 8,
 				labelFormatter: function() {
 					console.log(this);
-					return '<span class="abcd" id="'+ this.name + '" title="test">' + this.name + '</span>';
+					return '<span class="abcd" >' + this.name + '</span>';
 				}
 			},
 		 exporting: {
@@ -1025,10 +1025,42 @@
 				
 				element.onmouseover = function () {
 					// Highlighting current spline on chart by adding stroke-width;
+					// item.legendGroup.element
+					console.log(item.legendGroup.element);
+					$(item.legendGroup.element).tooltip({
+						content: function () {
+							//                console.log(this);
+							//   var t = parseInt($(this).get(0).attributes['data-index'].nodeValue) + 1;
+							//                var x = $(this).get(0).attributes['data-index'];
+							//   return refs['p' + t] + ' <a style="color: blue" href="#">hyperref</a>';
+							return '<div><strong>Medium-Term Up Trend</strong></div><div>50-Day Simple Moving Average is Trending Higher</div>';
+
+						},
+						position: {
+							my: 'left bottom',
+							at: 'right top'
+							//                of: $('.abc')
+						},
+						items: item.legendGroup.element,
+						close: function (event, ui) {
+							ui.tooltip.hover(
+								function () {
+									$(this).stop(true).fadeTo(400, 1);
+								},
+								function () {
+									$(this).fadeOut("400", function () {
+										$(this).remove();
+									})
+								});
+						}
+					});
+					
+
 					if($(item.group.element.firstChild).attr('stroke-width'))
 					{
 					   $(item.group.element.firstChild).attr('stroke-width','4');
 					};
+				
 				each(collection, function (seriesItem) {
 					
 						if (seriesItem !== item) {
@@ -1045,10 +1077,12 @@
 				
 				element.onmouseout = function () {
 					// Setting stroke-width to default-options value;
+					$(item.legendGroup.element).tooltip('close');
 					if($(item.group.element.firstChild).attr('stroke-width'))
 					{
 						$(item.group.element.firstChild).attr('stroke-width', item.options.lineWidth);
 					};
+
 				each(collection, function (seriesItem) {
 						if (seriesItem !== item) {
 							each(groups, function (group) {
@@ -1196,35 +1230,9 @@
 		 });
 
 
-//   $('.abc').tooltip({
-//     content: function() {
-//       //                console.log(this);
-//       var t = parseInt($(this).get(0).attributes['data-index'].nodeValue) + 1;
-//       //                var x = $(this).get(0).attributes['data-index'];
-//       return refs['p' + t] + ' <a style="color: blue" href="#">hyperref</a>';
-//     },
-//     items: '.abc',
-//     position: {
-//       my: 'left bottom',
-//       at: 'right top'
-//         //                of: $('.abc')
-//     },
-//     show: null,
-//     close: function(event, ui) {
-//       ui.tooltip.hover(
-//         function() {
-//           $(this).stop(true).fadeTo(400, 1);
-//         },
-//         function() {
-//           $(this).fadeOut("400", function() {
-//             $(this).remove();
-//           })
-//         });
-//     }
-//   });
 
 
-  $('.abcd').tooltip({content:'test12'}) ;
+
 
 
 		});
