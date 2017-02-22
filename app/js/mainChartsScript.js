@@ -86,8 +86,13 @@
 				floating: false,
 				verticalAlign: 'top',
 				padding: 8,
+				useHTML: true,
 				labelFormatter: function() {
 					console.log(this);
+					if(this.options.patternName)
+					{
+						return '<span class="haspattern">' + this.name +'</span>';
+					}
 					return '<span class="abcd" >' + this.name + '</span>';
 				}
 			},
@@ -290,7 +295,7 @@
 			data: PREDICT,
 			color: '#7cb5ec',
 			dashStyle: 'dash',
-			showInLegend: false,
+			showInLegend: true,
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -302,7 +307,7 @@
 			color: '#7cb5ec',
 			dashStyle: 'dash',
 			lineWidth: 1,
-			showInLegend: false,
+			showInLegend: true,
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -314,7 +319,7 @@
 			color: '#7cb5ec',
 			dashStyle: 'dash',
 			lineWidth: 1,
-			showInLegend: false,
+			showInLegend: true,
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -372,6 +377,8 @@
 			enableMouseTracking: false,
 			data: BB_low,
 			color: '#90ed7d',
+			patternName: 'Medium-Term Up Trend ',
+			patternDescription: '50-Day Simple Moving Average is Trending Higher',
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -382,7 +389,7 @@
 		data: Volume,
 		color: '#c0c0c0',
 		yAxis: 'volumnAxis',
-		showInLegend: false,
+		showInLegend: true,
 		dataGrouping: {
 			units: groupingUnits
 		},
@@ -395,7 +402,7 @@
 			enableMouseTracking: false,
 			color: '#2b908f',
 			yAxis: 'rsiAxis',
-			showInLegend: false,
+			showInLegend: true,
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -407,7 +414,7 @@
 			color: '#434348',
 			enableMouseTracking: false,
 			yAxis: 'macdAxis',
-			showInLegend: false,
+			showInLegend: true,
 			dataGrouping: {
 				units: groupingUnits
 			},
@@ -418,7 +425,7 @@
 			data: MACD_signal,
 			color: '#f45b5b',
 			yAxis: 'macdAxis',
-			showInLegend: false,
+			showInLegend: true,
 			enableMouseTracking: false,
 			dataGrouping: {
 				units: groupingUnits
@@ -430,7 +437,7 @@
 			data: MACD_hist,
 			color: '#7cb5ec',
 			yAxis: 'macdAxis',
-			showInLegend: false,
+			showInLegend: true,
 			enableMouseTracking: false,
 			dataGrouping: {
 				units: groupingUnits
@@ -443,7 +450,7 @@
 			data: stoch_fast_k,
 			color: '#000',
 			yAxis: 'stochAxis',
-			showInLegend: false,
+			showInLegend: true,
 			enableMouseTracking: false,
 			dataGrouping: {
 				units: groupingUnits
@@ -455,7 +462,7 @@
 			data: stoch_slow_k,
 			color: '#aaa',
 			yAxis: 'stochAxis',
-			showInLegend: false,
+			showInLegend: true,
 			enableMouseTracking: false,
 			dataGrouping: {
 				units: groupingUnits
@@ -467,7 +474,7 @@
 			data: stoch_slow_d,
 			color: 'red',
 			yAxis: 'stochAxis',
-			showInLegend: false,
+			showInLegend: true,
 			enableMouseTracking: false,
 			dataGrouping: {
 				units: groupingUnits
@@ -1009,6 +1016,7 @@
 		/**
 		 * Highcharts plugin for setting a lower opacity for other series than the one that is hovered
 		 * in the legend
+		 * 
 		 */
 		(function (Highcharts) {
 			var each = Highcharts.each;
@@ -1021,40 +1029,50 @@
 				var isPoint = !!item.series,
 					collection = isPoint ? item.series.points : this.chart.series,
 					groups = isPoint ? ['graphic'] : ['group', 'markerGroup'],
-					element = item.legendGroup.element;
+					element = item.legendGroup.div.firstChild;
 				
 				element.onmouseover = function () {
 					// Highlighting current spline on chart by adding stroke-width;
 					// item.legendGroup.element
-					console.log(item.legendGroup.element);
-					$(item.legendGroup.element).tooltip({
-						content: function () {
-							//                console.log(this);
-							//   var t = parseInt($(this).get(0).attributes['data-index'].nodeValue) + 1;
-							//                var x = $(this).get(0).attributes['data-index'];
-							//   return refs['p' + t] + ' <a style="color: blue" href="#">hyperref</a>';
-							return '<div><strong>Medium-Term Up Trend</strong></div><div>50-Day Simple Moving Average is Trending Higher</div>';
-
-						},
-						position: {
-							my: 'left bottom',
-							at: 'right top'
-							//                of: $('.abc')
-						},
-						items: item.legendGroup.element,
-						close: function (event, ui) {
-							ui.tooltip.hover(
-								function () {
-									$(this).stop(true).fadeTo(400, 1);
-								},
-								function () {
-									$(this).fadeOut("400", function () {
-										$(this).remove();
-									})
-								});
-						}
-					});
+					console.log(item);
+					// console.log(item.legendGroup.element);
 					
+					globalitem = item;
+					
+
+					if (item.options.patternName && !($(item.legendGroup.div.firstChild).hasClass('tooltipLegendItem'))) {
+					  $(item.legendGroup.div.firstChild).addClass('tooltipLegendItem');
+
+					  $(element).tooltip({
+					    content: function () {
+					      //                console.log(this);
+					      //   var t = parseInt($(this).get(0).attributes['data-index'].nodeValue) + 1;
+					      //                var x = $(this).get(0).attributes['data-index'];
+					      //   return refs['p' + t] + ' <a style="color: blue" href="#">hyperref</a>';
+					      return '<div><strong>' + item.options.patternName + '</strong></div><div>' + item.options.patternDescription + '</div>';
+
+					    },
+					    position: {
+					      my: 'left bottom',
+					      at: 'right top'
+					    },
+					    items: element,
+					    close: function (event, ui) {
+					      ui.tooltip.hover(
+					        function () {
+					          $(this).stop(true).fadeTo(400, 1);
+					        },
+					        function () {
+					          $(this).fadeOut("400", function () {
+					            $(this).remove();
+					          })
+					        });
+					    }
+					  });
+					  $(element).tooltip('open');
+					}
+
+
 
 					if($(item.group.element.firstChild).attr('stroke-width'))
 					{
@@ -1076,8 +1094,12 @@
 				}
 				
 				element.onmouseout = function () {
-					// Setting stroke-width to default-options value;
-					$(item.legendGroup.element).tooltip('close');
+					//NS: Close ToolTip on mouseout
+					if (item.options.patternName && $(item.legendGroup.div.firstChild).hasClass('tooltipLegendItem')) {
+						$(element).tooltip('close');
+					}
+					
+					//NS: Setting stroke-width to default-options value;
 					if($(item.group.element.firstChild).attr('stroke-width'))
 					{
 						$(item.group.element.firstChild).attr('stroke-width', item.options.lineWidth);
