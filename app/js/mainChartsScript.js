@@ -98,6 +98,13 @@
 				}
 			},
 		 exporting: {
+			  	buttons:
+				  {
+					contextButton: {
+						align: 'right',
+						y: 20
+					}
+				  },
 	            chartOptions: { // specific options for the exported image
 	                plotOptions: {
 	                    series: {
@@ -676,25 +683,43 @@
 	
 	function toggleMACD(el) {
 		if (seriesState.macd) {
+			
 			series.macd[0].hide();
+			
+			series.macd[0].options.showInLegend = false;
+			series.macd[0].legendGroup.hide();
 			series.macd[1].hide();
+			series.macd[1].options.showInLegend = false;
+			series.macd[1].legendGroup.hide();
 			series.macd[2].hide();
+			series.macd[2].options.showInLegend = false;
+			series.macd[2].legendGroup.hide();
 			if (el != null)
 				$(el).removeClass('active');
 			seriesState.macd = false;
+			//  chart.legend.update({},true);
 			axis.macd.update ({
 				visible: false
 			});
+			debugger;
+			chart.legend.render();
 		} else {
 			axis.macd.update ({
 				visible: true
 			});
 			series.macd[0].show();
+			series.macd[0].options.showInLegend = true;
+			series.macd[0].legendItem.show();
 			series.macd[1].show();
+			series.macd[1].options.showInLegend = true;
+			series.macd[1].legendItem.show();
 			series.macd[2].show();
+			series.macd[2].options.showInLegend = true;
+			series.macd[2].legendItem.show();
 			if (el!= null)
 				$(el).addClass('active');
 			seriesState.macd = true;
+			chart.legend.update({},true);
 		}
 	}
 	
