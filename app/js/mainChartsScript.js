@@ -55,7 +55,8 @@
 		
 		
 		title: {
-			text: 'Astoria Financial Corporation C (AF) - 2017-02-16'
+			text: 'Astoria Financial Corporation C (AF) - 2017-02-16',
+			align: 'center',
 		},
 		credits: {
 			enabled: false
@@ -86,6 +87,7 @@
 				floating: false,
 				verticalAlign: 'top',
 				padding: 8,
+				y: 25,
 				itemMarginTop: 2,
 				itemMarginBottom: 2,
 				useHTML: true,
@@ -102,7 +104,6 @@
 				  {
 					contextButton: {
 						align: 'right',
-						y: 20
 					}
 				  },
 	            chartOptions: { // specific options for the exported image
@@ -683,49 +684,44 @@
 	
 	function toggleMACD(el) {
 		if (seriesState.macd) {
-			
-			series.macd[0].hide();
-			
-			series.macd[0].options.showInLegend = false;
-			series.macd[0].legendGroup.hide();
-			series.macd[1].hide();
-			series.macd[1].options.showInLegend = false;
-			series.macd[1].legendGroup.hide();
-			series.macd[2].hide();
-			series.macd[2].options.showInLegend = false;
-			series.macd[2].legendGroup.hide();
+			//simple 'for' iteration for each element of selected series array to hide series and legendgroup
+			for(i=0;i<series.macd.length; i++)
+			{
+				series.macd[i].hide();
+				series.macd[i].options.showInLegend = false;
+				series.macd[i].legendGroup.hide();
+			}
+			chart.legend.render();			
 			if (el != null)
 				$(el).removeClass('active');
 			seriesState.macd = false;
-			//  chart.legend.update({},true);
 			axis.macd.update ({
 				visible: false
 			});
-			debugger;
-			chart.legend.render();
 		} else {
 			axis.macd.update ({
 				visible: true
 			});
-			series.macd[0].show();
-			series.macd[0].options.showInLegend = true;
-			series.macd[0].legendItem.show();
-			series.macd[1].show();
-			series.macd[1].options.showInLegend = true;
-			series.macd[1].legendItem.show();
-			series.macd[2].show();
-			series.macd[2].options.showInLegend = true;
-			series.macd[2].legendItem.show();
+			//simple 'for' iteration for each element of selected series array to show series and legendgroup
+			for(i=0;i<series.macd.length; i++)
+			{
+				series.macd[i].show();
+				series.macd[i].options.showInLegend = true;
+				series.macd[i].legendGroup.show();
+			}
+			chart.legend.render();
 			if (el!= null)
 				$(el).addClass('active');
 			seriesState.macd = true;
-			chart.legend.update({},true);
 		}
 	}
 	
 	function toggleRSI(el) {
 		if (seriesState.rsi) {
 			series.rsi.hide();
+			series.rsi.options.showInLegend = false;
+			series.rsi.legendGroup.hide();
+			chart.legend.render();
 			if (el!=null)
 				$(el).removeClass('active');
 			seriesState.rsi = false;
@@ -737,6 +733,9 @@
 				visible: true
 			});
 			series.rsi.show();
+			series.rsi.options.showInLegend = true;
+			series.rsi.legendGroup.show();
+			chart.legend.render();			
 			if (el!=null)
 				$(el).addClass('active');
 			seriesState.rsi = true;
@@ -745,9 +744,13 @@
 	
 	function toggleStoch(el) {
 		if (seriesState.stoch) {
-			series.stoch[0].hide();
-			series.stoch[1].hide();
-			series.stoch[2].hide();
+			for(i=0;i<series.stoch.length; i++)
+			{
+				series.stoch[i].hide();
+				series.stoch[i].options.showInLegend = false;
+				series.stoch[i].legendGroup.hide();
+			}
+			chart.legend.render();			
 			if (el!=null)
 				$(el).removeClass('active');
 			seriesState.stoch = false;
@@ -758,9 +761,13 @@
 			axis.stoch.update ({
 				visible: true
 			});
-			series.stoch[0].show();
-			series.stoch[1].show();
-			series.stoch[2].show();
+			for(i=0;i<series.stoch.length; i++)
+			{
+				series.stoch[i].show();
+				series.stoch[i].options.showInLegend = true;
+				series.stoch[i].legendGroup.show();
+			}
+			chart.legend.render();			
 			if (el!=null)
 				$(el).addClass('active');
 			seriesState.stoch= true;
@@ -800,15 +807,23 @@
 			case 'bb20':
 				$(el).click(function() {
 					if (seriesState.bb20) {
-						series.bb20[0].hide();
-						series.bb20[1].hide();
-						series.bb20[2].hide();
+						for(i=0;i<series.bb20.length; i++)
+						{
+							series.bb20[i].hide();
+							series.bb20[i].options.showInLegend = false;
+							series.bb20[i].legendGroup.hide();
+						}
+						chart.legend.render();						
 						$(el).removeClass('active');
 						seriesState.bb20 = false;
 					} else {
-						series.bb20[0].show();
-						series.bb20[1].show();
-						series.bb20[2].show();
+						for(i=0;i<series.bb20.length; i++)
+						{
+							series.bb20[i].show();
+							series.bb20[i].options.showInLegend = true;
+							series.bb20[i].legendGroup.show();
+						}
+						chart.legend.render();	
 						$(el).addClass('active');
 						seriesState.bb20 = true;
 					}
@@ -861,10 +876,16 @@
 					if (serie) {
 						if (seriesState[el.id]) {
 							serie.hide();
+							serie.options.showInLegend = false;
+							serie.legendGroup.hide();
+							chart.legend.render();								
 							$(el).removeClass('active');
 							seriesState[el.id] = false;
 						} else {
 							serie.show();
+							serie.options.showInLegend = true;
+							serie.legendGroup.show();
+							chart.legend.render();	
 							$(el).addClass('active');
 							seriesState[el.id] = true;
 						}
@@ -889,14 +910,19 @@
 	function toggleForcast (isOn) {
 		if(isOn) {
 			series.predict.show();
+			series.predict.options.showInLegend = true;
+			series.predict.legendGroup.show();
+			chart.legend.render();			
 			seriesState.predict = true;
 			// for auto moving
 			if ((!seriesState.predictmin && !seriesState.predictmax))
 				chart.xAxis[0].setExtremes(predictRangeMin, predictRangeMax);
 		} else {
 			series.predict.hide();
+			series.predict.options.showInLegend = false;
+			series.predict.legendGroup.hide();
+			chart.legend.render();			
 			seriesState.predict = false;
-			
 			// for auto moving
 			if ( !seriesState.predict && !seriesState.predictmin && !seriesState.predictmax )
 				chart.xAxis[0].setExtremes(lastDate - rangeScale*2, lastDate);
@@ -907,14 +933,19 @@
 	function toggleForcastMin (isOn) {
 		if(isOn) {
 			series.predictmin.show();
+			series.predictmin.options.showInLegend = true;
+			series.predictmin.legendGroup.show();
+			chart.legend.render();									
 			seriesState.predictmin = true;
 			// for auto moving
 			if (!seriesState.predict && !seriesState.predictmax)
 				chart.xAxis[0].setExtremes(predictRangeMin, predictRangeMax);
 		} else {
 			series.predictmin.hide();
+			series.predictmin.options.showInLegend = false;
+			series.predictmin.legendGroup.hide();
+			chart.legend.render();
 			seriesState.predictmin = false;
-			
 			// for auto moving
 			if ( !seriesState.predict && !seriesState.predictmin && !seriesState.predictmax )
 				chart.xAxis[0].setExtremes(lastDate - rangeScale*2, lastDate);
@@ -923,12 +954,18 @@
 	function toggleForcastMax (isOn) {
 		if(isOn) {
 			series.predictmax.show();
-			seriesState.predictmax = true;
+			series.predictmax.options.showInLegend = true;
+			series.predictmax.legendGroup.show();
+			chart.legend.render();	
+			seriesState.predictmax = true;								
 			// for auto moving
 			if (!seriesState.predict && !seriesState.predictmin)
 				chart.xAxis[0].setExtremes(predictRangeMin, predictRangeMax);
 		} else {
 			series.predictmax.hide();
+			series.predictmax.options.showInLegend = false;
+			series.predictmax.legendGroup.hide();
+			chart.legend.render();
 			seriesState.predictmax= false;
 			
 			// for auto moving
